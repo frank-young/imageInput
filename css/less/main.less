@@ -1,0 +1,140 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+@width:1500px;
+@color-w:#fff;
+.box-sizing{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.transform{
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+.border-radius(@r:5px){
+	-webkit-border-radius: @r;;
+	-moz-border-radius: @r;
+	-ms-border-radius: @r;
+	-o-border-radius: @r;
+	border-radius: @r;
+}
+.box-shadow(@x:2px,@y:2px,@m:2px,@c:rgba(0, 0, 0, 0.5)){
+	-webkit-box-shadow: @x @y @m @c;
+	-moz-box-shadow: @x @y @m @c;
+	-ms-box-shadow: @x @y @m @c;
+	-o-box-shadow: @x @y @m @c;
+	box-shadow: @x @y @m @c;
+}
+/*图片容器*/
+.box{
+	@w:480px;
+	@h:300px;
+
+	width: @width;  
+	margin: 0 auto;
+	border: 1px solid #666;
+	&-img{
+		width: @w;
+		height: @h;
+		line-height: @h;
+		float: left;
+		margin: 10px;
+		font-size: 200px;
+		color: @color-w;
+		text-align: center;
+		opacity: 0;
+		cursor: pointer;
+		position: relative;
+		left:-100%;
+		top: -100%;
+		overflow: hidden;
+		text-align: center;
+	}
+	img{
+		width: 100%;
+	}
+	&:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+}
+
+/*遮罩层*/
+.cover{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+	opacity: 0;
+}
+.zoom{
+	@w:900px;
+	@h:500px;
+
+	width: @w;
+	height: auto;
+	position: fixed;
+	top:30%;
+	left: 50%;
+	padding: 20px;
+	.transform;
+	.border-radius();
+	background: @color-w;
+	display: none;
+	opacity: 0;
+	.box-shadow();
+	z-index: 100;
+	img{
+		width:@w; 
+		height: @h;
+		.border-radius();
+	}
+}
+.btn{
+	@w:50px;
+	@h:80px;
+
+	width: @w;
+	height: @h;
+	font-size: 50px;
+	text-align: center;
+	line-height: @h;
+	position: absolute;
+	color: @color-w;
+	background-color: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	top:50%;
+	margin-top: -@h/2;
+	&-prev{
+		left: -100px;
+
+	}
+	&-next{
+		right: -100px;
+	}
+	&-close{
+		width: 50px;
+		height: 50px;
+		right: -25px;
+		top: 15px;
+		line-height: 40px;
+		.border-radius(50%;);
+		font-family: 'Arial';
+		font-weight: 300;
+		border: 1px solid #666;
+		
+	}
+}
