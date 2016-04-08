@@ -2,9 +2,9 @@
 	margin: 0;
 	padding: 0;
 }
-
 @width:1500px;
 @color-w:#fff;
+
 .box-sizing{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -12,12 +12,12 @@
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.transform{
-	-webkit-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
+.translate(@x:-50%,@y:-50%){
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	-ms-transform: translate(@x, @y);
+	-o-transform: translate(@x, @y);
+	transform: translate(@x, @y);
 }
 .border-radius(@r:5px){
 	-webkit-border-radius: @r;;
@@ -33,6 +33,57 @@
 	-o-box-shadow: @x @y @m @c;
 	box-shadow: @x @y @m @c;
 }
+.transition(@t:all,@t:.3s){
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+
+}
+
+button{
+	outline:none;
+	border: 0;
+	background-color: #f60;
+	font-size: 20px;
+	font-family: '微软雅黑';
+	font-weight: 300;
+	padding:10px 20px;
+	color: #fff;
+	.border-radius();
+	cursor: pointer;
+	.transition();
+	&:hover{
+		background-color: #f80;
+	}
+}
+/*导航*/
+.nav{
+	width: @width;
+	height: 80px;
+	margin: 0 auto;
+	.edit{
+		float: right;
+		margin-top: 15px;
+	}
+	.success{
+		float: right;
+		margin-top: 15px;
+		margin-right: 15px;
+		background-color: #0b4;
+		display: none;
+		&:hover{
+			background-color: #0c4;
+		}
+	}
+	&:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
 /*图片容器*/
 .box{
 	@w:480px;
@@ -40,7 +91,10 @@
 
 	width: @width;  
 	margin: 0 auto;
-	border: 1px solid #666;
+	border: 1px solid #999;
+	.border-radius();
+	padding:10px;
+	.transition();
 	&-img{
 		width: @w;
 		height: @h;
@@ -49,18 +103,52 @@
 		margin: 10px;
 		font-size: 200px;
 		color: @color-w;
-		text-align: center;
 		opacity: 0;
 		cursor: pointer;
 		position: relative;
-		left:-100%;
-		top: -100%;
 		overflow: hidden;
 		text-align: center;
+		z-index: 10;
 	}
 	img{
 		width: 100%;
 	}
+	input[type='checkbox']{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		cursor: pointer;
+		right: 0;
+		bottom: 0;
+		outline: none;
+		z-index: 100;
+		visibility: hidden;
+		display: none;
+		&::after{
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			.transition();
+			visibility: visible;
+			display: block;
+			font-size: 40px;
+			color: #fff;
+			text-align: center;
+			line-height: 300px;
+		}
+		&:hover::after{
+			border: 10px solid #f60;
+			.box-sizing;
+		}
+		&:checked::after{
+			content: '选中';
+			border: 10px solid #f60;
+			.box-sizing;
+			background-color: rgba(0, 0, 0, 0.3)
+		}
+	}
+
 	&:after{
 		content: '';
 		display: block;
@@ -90,16 +178,16 @@
 	top:30%;
 	left: 50%;
 	padding: 20px;
-	.transform;
+	.translate();
 	.border-radius();
-	background: @color-w;
 	display: none;
 	opacity: 0;
 	.box-shadow();
 	z-index: 100;
+	background-color: @color-w;
 	img{
 		width:@w; 
-		height: @h;
+		// height: @h;
 		.border-radius();
 	}
 }

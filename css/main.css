@@ -9,18 +9,71 @@
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-.transform {
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+button {
+  outline: none;
+  border: 0;
+  background-color: #f60;
+  font-size: 20px;
+  font-family: '微软雅黑';
+  font-weight: 300;
+  padding: 10px 20px;
+  color: #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+button:hover {
+  background-color: #f80;
+}
+/*导航*/
+.nav {
+  width: 1500px;
+  height: 80px;
+  margin: 0 auto;
+}
+.nav .edit {
+  float: right;
+  margin-top: 15px;
+}
+.nav .success {
+  float: right;
+  margin-top: 15px;
+  margin-right: 15px;
+  background-color: #0b4;
+  display: none;
+}
+.nav .success:hover {
+  background-color: #0c4;
+}
+.nav:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 /*图片容器*/
 .box {
   width: 1500px;
   margin: 0 auto;
-  border: 1px solid #666;
+  border: 1px solid #999;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
 }
 .box-img {
   width: 480px;
@@ -33,13 +86,59 @@
   opacity: 0;
   cursor: pointer;
   position: relative;
-  left: -100%;
-  top: -100%;
   overflow: hidden;
   text-align: center;
+  z-index: 10;
 }
 .box img {
   width: 100%;
+}
+.box input[type='checkbox'] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  bottom: 0;
+  outline: none;
+  z-index: 100;
+  visibility: hidden;
+  display: none;
+}
+.box input[type='checkbox']::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  visibility: visible;
+  display: block;
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  line-height: 300px;
+}
+.box input[type='checkbox']:hover::after {
+  border: 10px solid #f60;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.box input[type='checkbox']:checked::after {
+  content: '选中';
+  border: 10px solid #f60;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .box:after {
   content: '';
@@ -74,7 +173,6 @@
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  background: #ffffff;
   display: none;
   opacity: 0;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
@@ -83,10 +181,10 @@
   -o-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   z-index: 100;
+  background-color: #ffffff;
 }
 .zoom img {
   width: 900px;
-  height: 500px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;

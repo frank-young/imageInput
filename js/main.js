@@ -5,18 +5,18 @@ $(function(){
 		/*添加遮罩层*/
 		addCover:function(){
 			$('.cover')
-				.css({display:'block'})
+				.show()
 				.animate({opacity:1},300);
 		},
 		removeCover: function(){
 			$('.cover')
 				.animate({opacity:0},300)
-				.css({display:'none'});
+				.hide();
 		},
 		/*弹出图片盒子*/
 		addImgBox: function(src,alt){
 			$('.zoom')
-				.css({display:'block'})
+				.show()
 				.animate({
 					opacity:1,
 					top:'50%'
@@ -31,19 +31,19 @@ $(function(){
 					opacity:0,
 					top:'30%'
 				},300)
-				.css({display:'none'});
+				.hide();
 		},
-		changeImg: function(e){
+		changeImg: function(str){
 			var $value = $('.zoom').children('img').attr('src');
 			$element.each(function(i){
 				if($(this).children().attr('src')==$value){
-					if(e=="prev"){
-						var $e = $(this).prev().children();
+					if(str=="prev"){
+						var $ele = $(this).prev().children();
 					}else{
-						var $e = $(this).next().children();
+						var $ele = $(this).next().children();
 					}
-					var src = $e.attr('src');
-					var alt = $e.attr('alt');
+					var src = $ele.attr('src');
+					var alt = $ele.attr('alt');
 					tool.addImgBox(src,alt);
 					if(src==undefined){
 						alert('已经到头了');
@@ -52,6 +52,15 @@ $(function(){
 				}
 			})
 		}
+	}
+	/*设置图片随机位置*/
+	function imgRedom(){
+		$element.each(function(){
+			$(this).css({
+				left: -Math.floor(Math.random()*50)+"%",
+				top:-Math.floor(Math.random()*100)+"%",
+			})
+		})
 	}
 	/*图片飞入*/
 	function imgInput(){
@@ -64,10 +73,11 @@ $(function(){
 					top:0
 				},300)
 				.addClass('input')
+				.children('img')
 				.click(function(){		// 判断哪张图片被点击
 					/*传入当前图片的值*/
-					var $src = $(this).children().attr('src');
-					var $alt = $(this).children().attr('alt');
+					var $src = $(this).attr('src');
+					var $alt = $(this).attr('alt');
 					
 					tool.addCover();//添加覆盖层
 					tool.addImgBox($src,$alt);//显示图片及按钮
@@ -98,5 +108,18 @@ $(function(){
 		tool.removeCover();
 		tool.removeImgBox();
 	})
+	/*编辑按钮*/
+	$('.edit').click(function(){
+		$('.box').css('border',"3px dotted #999");
+		$('input[type=checkbox]').show();
+		$('.success')
+			.show()
+			.click(function(){
+				$(this).hide();
+				$('input[type=checkbox]').hide();
+				$('.box').css('border',"1px solid #999");
+			});
+	})
+	imgRedom();
 	imgInput();
 })
