@@ -55,11 +55,36 @@ $(function(){
 	}
 	/*设置图片随机位置*/
 	function imgRedom(){
-		$element.each(function(){
-			$(this).css({
-				left: -Math.floor(Math.random()*50)+"%",
-				top:-Math.floor(Math.random()*100)+"%",
-			})
+		$element.each(function(i){
+
+			// 位置1
+			if((i)%3==0){
+				$(this).css({
+					top:'100%',
+					left:'33%'
+				})
+			}
+			// 位置2
+			if((i-1)%3==0){
+				$(this).css({
+					top:'100%',
+					left:'0%'
+				})
+			}
+			// 位置3
+			if((i-2)%3==0){
+				$(this).css({
+					top:'100%',
+					left:'-33%'
+				})
+			}
+			// $(this).css({
+			// 	// left: -Math.floor(Math.random()*50)+"%",
+			// 	// top:-Math.floor(Math.random()*100)+"%",
+			// 	top:'100%',
+			// 	left:'30%'
+			// })
+			// console.log(i)
 		})
 	}
 	/*图片飞入*/
@@ -102,7 +127,6 @@ $(function(){
 			})
 		$boxImg.click(function(){
 			$boxCheck.children().children().prop("checked",$boxImg.length == $(".box-img input[type=checkbox]:checked").length ? true : false);
-			console.log($(".box-img input[type=checkbox]:checked").length)
 		})	
 	}
 
@@ -129,7 +153,9 @@ $(function(){
 		tool.removeImgBox();
 	})
 	/*编辑按钮*/
-	$('.edit').click(function(){
+	$('.edit')
+	.click(function(){
+		$(this).hide();/*隐藏编辑按钮*/
 		$('.box').css('border',"3px dotted #999");
 		$('<span class="mask-item"></span>').insertAfter($('.box-img>input[type=checkbox]'));
 		$(':checkbox').show();
@@ -143,6 +169,7 @@ $(function(){
 				$('.box').css('border',"1px solid #999");
 				$('.box-check').hide('fast');
 				$('.mask-item').remove();
+				$('.edit').show();/*显示编辑按钮*/
 			});
 		// imgCheck()
 	})
