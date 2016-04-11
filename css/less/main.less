@@ -2,6 +2,11 @@
 	margin: 0;
 	padding: 0;
 }
+body{
+	font-size: 18px;
+	font-family: '微软雅黑';
+	color:#333;
+}
 @width:1500px;
 @color-w:#fff;
 
@@ -63,6 +68,8 @@ button{
 	width: @width;
 	height: 80px;
 	margin: 0 auto;
+	*overflow: hidden;
+	*zoom: 1; 
 	.edit{
 		float: right;
 		margin-top: 15px;
@@ -95,6 +102,53 @@ button{
 	.border-radius();
 	padding:10px;
 	.transition();
+	*overflow: hidden;
+	*zoom: 1; 
+	/*全选按钮*/
+	&-check{
+		padding: 8px 20px;
+		text-align: right;
+		display: none;
+		vertical-align: bottom;
+		label{
+			position: relative;
+			cursor: pointer;
+		}
+		input[type="checkbox"]{
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			left: -30px;
+			top: 2px;
+			opacity: 0;
+		}
+		.mask-all{
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			left: -30px;
+			top: 2px;
+			.transition();
+			display: block;
+			border:2px solid #ccc;
+			text-align: center;
+			.box-sizing;
+			.border-radius(50%);
+			opacity: 1;
+			visibility: visible;
+		}
+		input[type="checkbox"]:hover +span{
+			border: 6px solid #f60;
+			.box-shadow(0px,0px,2px,#f90);
+			.box-sizing;
+		}
+		input[type="checkbox"]:checked +span{
+			border: 6px solid #f60;	
+			.box-shadow(0px,0px,2px,#f90);
+			.box-sizing;
+			}
+	}
+	/* 图片包裹 */
 	&-img{
 		width: @w;
 		height: @h;
@@ -109,11 +163,39 @@ button{
 		overflow: hidden;
 		text-align: center;
 		z-index: 10;
+		.mask-item{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		.transition();
+		display: block;
+		font-size: 40px;
+		color: #fff;
+		text-align: center;
+		line-height: 300px;z-index: 90;
+		}
+		input[type='checkbox']:hover +span{
+
+			border: 10px solid #f60;
+			.box-sizing;
+		}
+		input[type='checkbox']:checked +span{
+			border: 10px solid #f60;
+			.box-sizing;
+			background-color: rgba(0, 0, 0, 0.3);
+			&:after{
+				content: '选中';
+			}
+		}
 	}
+	/*图片*/
 	img{
 		width: 100%;
 	}
-	input[type='checkbox']{
+	/*选项按钮*/
+	&-img>input[type='checkbox']{
 		width: 100%;
 		height: 100%;
 		position: absolute;
@@ -122,32 +204,12 @@ button{
 		bottom: 0;
 		outline: none;
 		z-index: 100;
-		visibility: hidden;
+		opacity: 0;
+		fliter:alpha(opacity=0);
 		display: none;
-		&::after{
-			content: '';
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			.transition();
-			visibility: visible;
-			display: block;
-			font-size: 40px;
-			color: #fff;
-			text-align: center;
-			line-height: 300px;
-		}
-		&:hover::after{
-			border: 10px solid #f60;
-			.box-sizing;
-		}
-		&:checked::after{
-			content: '选中';
-			border: 10px solid #f60;
-			.box-sizing;
-			background-color: rgba(0, 0, 0, 0.3)
-		}
 	}
+	
+	
 
 	&:after{
 		content: '';
@@ -167,6 +229,7 @@ button{
 	top: 0;
 	display: none;
 	opacity: 0;
+	z-index: 10;
 }
 .zoom{
 	@w:900px;

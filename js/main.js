@@ -86,6 +86,26 @@ $(function(){
 		});
 	}
 
+	/*设置全选图片*/
+	function imgCheck(){
+		/*全选按钮*/
+		var $boxCheck = $('.box-check');
+		var $boxImg = $('.box-img :checkbox');
+		$boxCheck
+			.children()
+			.bind('change', function(){
+				if($boxCheck.children().children().is(':checked')){
+					$boxImg.prop('checked', "true");	//不能使用attr
+				}else{
+					$boxImg.removeAttr('checked');
+				}
+			})
+		$boxImg.click(function(){
+			$boxCheck.children().children().prop("checked",$boxImg.length == $(".box-img input[type=checkbox]:checked").length ? true : false);
+			console.log($(".box-img input[type=checkbox]:checked").length)
+		})	
+	}
+
 	/*切换图片*/
 	//上一个按钮被点击
 	$('.btn-prev').click(function(){
@@ -111,15 +131,22 @@ $(function(){
 	/*编辑按钮*/
 	$('.edit').click(function(){
 		$('.box').css('border',"3px dotted #999");
-		$('input[type=checkbox]').show();
+		$('<span class="mask-item"></span>').insertAfter($('.box-img>input[type=checkbox]'));
+		$(':checkbox').show();
+		$('.box-check').show('fast');
+		/*完成按钮*/
 		$('.success')
 			.show()
 			.click(function(){
-				$(this).hide();
-				$('input[type=checkbox]').hide();
+				$(this).hide(); 
+				$(':checkbox').hide(); /*隐藏input按钮*/
 				$('.box').css('border',"1px solid #999");
+				$('.box-check').hide('fast');
+				$('.mask-item').remove();
 			});
+		// imgCheck()
 	})
+	imgCheck()
 	imgRedom();
 	imgInput();
 })

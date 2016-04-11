@@ -2,6 +2,11 @@
   margin: 0;
   padding: 0;
 }
+body {
+  font-size: 18px;
+  font-family: '微软雅黑';
+  color: #333;
+}
 .box-sizing {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -38,6 +43,8 @@ button:hover {
   width: 1500px;
   height: 80px;
   margin: 0 auto;
+  *overflow: hidden;
+  *zoom: 1;
 }
 .nav .edit {
   float: right;
@@ -74,6 +81,83 @@ button:hover {
   -ms-transition: all .3s ease;
   -o-transition: all .3s ease;
   transition: all .3s ease;
+  *overflow: hidden;
+  *zoom: 1;
+  /*全选按钮*/
+  /* 图片包裹 */
+  /*图片*/
+  /*选项按钮*/
+}
+.box-check {
+  padding: 8px 20px;
+  text-align: right;
+  display: none;
+  vertical-align: bottom;
+}
+.box-check label {
+  position: relative;
+  cursor: pointer;
+}
+.box-check input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -30px;
+  top: 2px;
+  opacity: 0;
+}
+.box-check .mask-all {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -30px;
+  top: 2px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  display: block;
+  border: 2px solid #ccc;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  opacity: 1;
+  visibility: visible;
+}
+.box-check input[type="checkbox"]:hover + span {
+  border: 6px solid #f60;
+  -webkit-box-shadow: 0px 0px 2px #ff9900;
+  -moz-box-shadow: 0px 0px 2px #ff9900;
+  -ms-box-shadow: 0px 0px 2px #ff9900;
+  -o-box-shadow: 0px 0px 2px #ff9900;
+  box-shadow: 0px 0px 2px #ff9900;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.box-check input[type="checkbox"]:checked + span {
+  border: 6px solid #f60;
+  -webkit-box-shadow: 0px 0px 2px #ff9900;
+  -moz-box-shadow: 0px 0px 2px #ff9900;
+  -ms-box-shadow: 0px 0px 2px #ff9900;
+  -o-box-shadow: 0px 0px 2px #ff9900;
+  box-shadow: 0px 0px 2px #ff9900;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .box-img {
   width: 480px;
@@ -90,10 +174,48 @@ button:hover {
   text-align: center;
   z-index: 10;
 }
+.box-img .mask-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  display: block;
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  line-height: 300px;
+  z-index: 90;
+}
+.box-img input[type='checkbox']:hover + span {
+  border: 10px solid #f60;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.box-img input[type='checkbox']:checked + span {
+  border: 10px solid #f60;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.box-img input[type='checkbox']:checked + span:after {
+  content: '选中';
+}
 .box img {
   width: 100%;
 }
-.box input[type='checkbox'] {
+.box-img > input[type='checkbox'] {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -102,43 +224,9 @@ button:hover {
   bottom: 0;
   outline: none;
   z-index: 100;
-  visibility: hidden;
+  opacity: 0;
+  fliter: alpha(opacity=0);
   display: none;
-}
-.box input[type='checkbox']::after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -ms-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
-  visibility: visible;
-  display: block;
-  font-size: 40px;
-  color: #fff;
-  text-align: center;
-  line-height: 300px;
-}
-.box input[type='checkbox']:hover::after {
-  border: 10px solid #f60;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.box input[type='checkbox']:checked::after {
-  content: '选中';
-  border: 10px solid #f60;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 .box:after {
   content: '';
@@ -155,6 +243,7 @@ button:hover {
   top: 0;
   display: none;
   opacity: 0;
+  z-index: 10;
 }
 .zoom {
   width: 900px;
