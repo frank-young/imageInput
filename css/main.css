@@ -134,12 +134,12 @@ button:hover {
   visibility: visible;
 }
 .box-check input[type="checkbox"]:hover + span {
-  border: 6px solid #f60;
-  -webkit-box-shadow: 0px 0px 2px #ff9900;
-  -moz-box-shadow: 0px 0px 2px #ff9900;
-  -ms-box-shadow: 0px 0px 2px #ff9900;
-  -o-box-shadow: 0px 0px 2px #ff9900;
-  box-shadow: 0px 0px 2px #ff9900;
+  border: 6px solid #0b4;
+  -webkit-box-shadow: 0px 0px 2px #00cc44;
+  -moz-box-shadow: 0px 0px 2px #00cc44;
+  -ms-box-shadow: 0px 0px 2px #00cc44;
+  -o-box-shadow: 0px 0px 2px #00cc44;
+  box-shadow: 0px 0px 2px #00cc44;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -147,12 +147,12 @@ button:hover {
   box-sizing: border-box;
 }
 .box-check input[type="checkbox"]:checked + span {
-  border: 6px solid #f60;
-  -webkit-box-shadow: 0px 0px 2px #ff9900;
-  -moz-box-shadow: 0px 0px 2px #ff9900;
-  -ms-box-shadow: 0px 0px 2px #ff9900;
-  -o-box-shadow: 0px 0px 2px #ff9900;
-  box-shadow: 0px 0px 2px #ff9900;
+  border: 6px solid #0b4;
+  -webkit-box-shadow: 0px 0px 2px #00cc44;
+  -moz-box-shadow: 0px 0px 2px #00cc44;
+  -ms-box-shadow: 0px 0px 2px #00cc44;
+  -o-box-shadow: 0px 0px 2px #00cc44;
+  box-shadow: 0px 0px 2px #00cc44;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -193,7 +193,7 @@ button:hover {
   z-index: 90;
 }
 .box-img input[type='checkbox']:hover + span {
-  border: 10px solid #f60;
+  border: 10px solid #0b4;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -201,7 +201,7 @@ button:hover {
   box-sizing: border-box;
 }
 .box-img input[type='checkbox']:checked + span {
-  border: 10px solid #f60;
+  border: 10px solid #0b4;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
