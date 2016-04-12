@@ -6,6 +6,7 @@ body {
   font-size: 18px;
   font-family: '微软雅黑';
   color: #333;
+  background-color: #033AAE;
 }
 .box-sizing {
   -webkit-box-sizing: border-box;
@@ -312,4 +313,20 @@ button:hover {
   font-family: 'Arial';
   font-weight: 300;
   border: 1px solid #666;
+}
+/* 图片发射样式 */
+.shot {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  left: 50%;
+  top: 80%;
+  margin-left: -50px;
+  z-index: 10000;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  border: 10px solid rgba(255, 255, 255, 0.5);
 }

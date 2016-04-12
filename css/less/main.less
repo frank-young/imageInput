@@ -6,6 +6,7 @@ body{
 	font-size: 18px;
 	font-family: '微软雅黑';
 	color:#333;
+	background-color: #033AAE;
 }
 @width:1500px;
 @color-w:#fff;
@@ -282,4 +283,21 @@ button{
 		font-weight: 300;
 		border: 1px solid #666;
 	}
+}
+
+/* 图片发射样式 */
+.shot{
+	@w:100px;
+	@h:100px;
+
+	width: @w;
+	height: @h;
+	position: fixed;
+	left: 50%;
+	top: 80%;
+	// margin-top: -@w;
+	margin-left: -@w/2;
+	z-index: 10000;
+	.border-radius(50%);
+	border:10px solid rgba(255, 255, 255, 0.5)
 }

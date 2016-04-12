@@ -53,43 +53,44 @@ $(function(){
 			})
 		}
 	}
-	/*设置图片随机位置*/
+	/*图片排列显示*/
 	function imgRedom(){
 		$element.each(function(i){
 
 			// 位置1
-			if((i)%3==0){
-				$(this).css({
-					top:'100%',
-					left:'33%'
-				})
-			}
-			// 位置2
-			if((i-1)%3==0){
-				$(this).css({
-					top:'100%',
-					left:'0%'
-				})
-			}
-			// 位置3
-			if((i-2)%3==0){
-				$(this).css({
-					top:'100%',
-					left:'-33%'
-				})
-			}
-			// $(this).css({
-			// 	// left: -Math.floor(Math.random()*50)+"%",
-			// 	// top:-Math.floor(Math.random()*100)+"%",
-			// 	top:'100%',
-			// 	left:'30%'
-			// })
-			// console.log(i)
+			// if((i)%3==0){
+			// 	$(this).css({
+			// 		top:'100%',
+			// 		left:'33%'
+			// 	})
+			// }
+			// // 位置2
+			// if((i-1)%3==0){
+			// 	$(this).css({
+			// 		top:'100%',
+			// 		left:'0%'
+			// 	})
+			// }
+			// // 位置3
+			// if((i-2)%3==0){
+			// 	$(this).css({
+			// 		top:'100%',
+			// 		left:'-33%'
+			// 	})
+			// }
+			$(this).css({
+				// left: -Math.floor(Math.random()*50)+"%",
+				// top:-Math.floor(Math.random()*100)+"%",
+				top:'10%',
+				left:'0%'
+			})
 		})
 	}
 	/*图片飞入*/
 	function imgInput(){
-		$element.each(function(i){
+		$element
+		.delay(1600)	/*设置延时与图片喷出的时间同步*/
+		.each(function(i){
 			$(this)
 				.delay(i*100)
 				.animate({
@@ -97,7 +98,6 @@ $(function(){
 					left: 0,
 					top:0
 				},300)
-				.addClass('input')
 				.children('img')
 				.click(function(){		// 判断哪张图片被点击
 					/*传入当前图片的值*/
@@ -176,4 +176,5 @@ $(function(){
 	imgCheck()
 	imgRedom();
 	imgInput();
+
 })
