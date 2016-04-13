@@ -320,7 +320,7 @@ button:hover {
   height: 100px;
   position: fixed;
   left: 50%;
-  top: 80%;
+  top: 100%;
   margin-left: -50px;
   z-index: 10000;
   -webkit-border-radius: 50%;

@@ -92,7 +92,7 @@ $(function(){
 		.delay(1600)	/*设置延时与图片喷出的时间同步*/
 		.each(function(i){
 			$(this)
-				.delay(i*100)
+				.delay(i*200)
 				.animate({
 					opacity:1,
 					left: 0,

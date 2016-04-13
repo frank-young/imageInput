@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+</head>
+<body>
+<img id="ds" src="img/05.jpg" alt="">
+	<canvas id="pro" width="500" height="400"></canvas>
+	<script>
+		function draw(){
+			var canvas = document.getElementById('pro');
+			if(canvas.getContext){
+				var ctx = canvas.getContext('2d');
+				var img = new Image();
+				img.onload = function(){
+					 ctx.drawImage(document.getElementById('ds'),50,38,100,100);
+				}
+				img.src = 'img/01.jpg';
+			}
+		}
+		draw();
+	</script>
+</body>
+</html>
