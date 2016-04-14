@@ -14,7 +14,7 @@ $(function(){
 				.hide();
 		},
 		/*弹出图片盒子*/
-		addImgBox: function(src,alt){
+		addImgBox: function(src,alt,txt){
 			$('.zoom')
 				.show()
 				.animate({
@@ -24,6 +24,7 @@ $(function(){
 			$('.zoom >img')
 				.attr('src',src)
 				.attr('alt',alt);
+			$('.zoom>p').html(txt);
 		},
 		removeImgBox:function(){
 			$('.zoom')
@@ -35,16 +36,20 @@ $(function(){
 		},
 		changeImg: function(str){
 			var $value = $('.zoom').children('img').attr('src');
+
 			$element.each(function(i){
-				if($(this).children().attr('src')==$value){
+				if($(this).children('img').attr('src')==$value){
 					if(str=="prev"){
-						var $ele = $(this).prev().children();
+						var $ele = $(this).prev().children('img');
+						var $txt = $(this).prev().children('p').html();
 					}else{
-						var $ele = $(this).next().children();
+						var $ele = $(this).next().children('img');
+						var $txt = $(this).next().children('p').html();
 					}
 					var src = $ele.attr('src');
 					var alt = $ele.attr('alt');
-					tool.addImgBox(src,alt);
+
+					tool.addImgBox(src,alt,$txt);
 					if(src==undefined){
 						alert('已经到头了');
 					}
@@ -89,10 +94,10 @@ $(function(){
 	/*图片飞入*/
 	function imgInput(){
 		$element
-		.delay(1600)	/*设置延时与图片喷出的时间同步*/
+		.delay(2000)	/*设置延时与图片喷出的时间同步*/
 		.each(function(i){
 			$(this)
-				.delay(i*200)
+				.delay(i*100)
 				.animate({
 					opacity:1,
 					left: 0,
@@ -103,9 +108,10 @@ $(function(){
 					/*传入当前图片的值*/
 					var $src = $(this).attr('src');
 					var $alt = $(this).attr('alt');
-					
+					var $txt = $(this).next().html();
+
 					tool.addCover();//添加覆盖层
-					tool.addImgBox($src,$alt);//显示图片及按钮
+					tool.addImgBox($src,$alt,$txt);//显示图片及按钮
 
 				});
 		});
@@ -156,17 +162,19 @@ $(function(){
 	$('.edit')
 	.click(function(){
 		$(this).hide();/*隐藏编辑按钮*/
-		$('.box').css('border',"3px dotted #999");
+
+		$('.box').css('border',"3px dotted #fff");
 		$('<span class="mask-item"></span>').insertAfter($('.box-img>input[type=checkbox]'));
 		$(':checkbox').show();
 		$('.box-check').show('fast');
 		/*完成按钮*/
-		$('.success')
-			.show()
-			.click(function(){
-				$(this).hide(); 
+		$('.wrap-send').show();
+
+		/*取消按钮*/
+		$('.not-send').click(function(){
+				$('.wrap-send').hide();
 				$(':checkbox').hide(); /*隐藏input按钮*/
-				$('.box').css('border',"1px solid #999");
+				$('.box').css('border',"1px solid #fff");
 				$('.box-check').hide('fast');
 				$('.mask-item').remove();
 				$('.edit').show();/*显示编辑按钮*/

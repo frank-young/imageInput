@@ -7,10 +7,21 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<form action="index.html" method="post">
 	<div class="nav">
-		<button class="edit">编辑</button>
-		<button class="success">完成</button>
-		
+	<ul>
+		<li><a href="map.html">浏览记录</a></li>
+		<li><a href="">详情查看</a></li>
+	</ul>
+		<button class="edit" type="button">邮件发送</button>
+		<div class="wrap-send">
+				<span class="email-waring"></span>
+				<input type="mail" id="email-input" name="email" placeholder="请输入您的邮箱">
+				<button class="send" type="submit">发送</button>
+				<button class="not-send" type="button">取消</button>
+
+			
+		</div>
 	</div>
 	<!-- 图片容器 -->
 	<div class="box">
@@ -20,99 +31,117 @@
 		<!-- 循环替代内容 start -->
 		<div class="box-img">
 			<img src="img/01.jpg" alt="1">
+			<p class="desc">这是一些描述1</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/02.jpg" alt="2">
+			<p class="desc">这是一些描述2</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/03.jpg" alt="3">
+			<p class="desc">这是一些描述3</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/04.jpg" alt="4">
+			<p class="desc">这是一些描述4</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/16.jpg" alt="16">
+			<p class="desc">这是一些描述5</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/06.jpg" alt="6">
+			<p class="desc">这是一些描述6</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/07.jpg" alt="7">
+			<p class="desc">这是一些描述</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/08.jpg" alt="8">
+			<p class="desc">这是一些描述</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/09.jpg" alt="9">
+			<p class="desc">这是一些描述</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/10.jpg" alt="10">
+			<p class="desc">这是一些描述</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/11.jpg" alt="11">
+			<p class="desc">这是一些描述</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/12.jpg" alt="12">
+			<p class="desc">这是一些描述</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/13.jpg" alt="13">
+			<p class="desc">这是一些描述</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/14.jpg" alt="14">
+			<p class="desc">这是一些描述</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->	
 		<div class="box-img">
 			<img src="img/15.jpg" alt="15">
+			<p class="desc">这是一些描述</p>
 			<input type="checkbox" name="img">
 		</div>
 		<!-- /.box-img -->
 		<!-- 循环替代内容 end -->	
 	</div>
 	<!-- /.box -->
-	
+				</form>
 	<!-- 覆盖层 -->
 	<div class="cover"></div>
 	<!-- /.cover -->
 	<!-- 图片盒子 -->
 	<div class="zoom">
 		<img src="" alt="">
+		<p class="zoom-desc"></p><a href="#">查看更多 ></a>
 		<span class="btn btn-close"> <!-- <i class="fa fa-times"></i> --> x </span>
 		<span class="btn btn-prev"> <!-- <i class="fa fa-angle-left"></i>  --> < </span>
 		<span class="btn btn-next"> <!-- <i class="fa fa-angle-right"></i> --> > </span>
 	</div>
 	<!-- /.zoom -->
 	<!-- 图片飞入 -->
+	<div class="shot-box"></div>
 	<script src="js/jquery-2.2.3.min.js" ></script>
 	<script src="js/jquery.easing.js"></script>
 	<script src="js/main.js"></script>
-	<script src="js/shot.js"></script>
+	<script src="js/shotnew.js"></script>
 	<script src="js/parabola.js"></script>
+	<script src="js/validate.js"></script>
 </body>
 </html>

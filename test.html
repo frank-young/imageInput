@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<title>js抛物运动</title>
+<meta charset="utf-8" />
+<style type="text/css">
+*{padding:0;margin:0;}
+body{font-size:13px;padding:10px;}
+p{margin:2px;}
+.wrap{position:relative;width:1000px;height:550px;margin:0 auto;border:1px solid #ccc;margin-top:50px;}
+img{width:100px;font-size:1px;height:100px;background:#000;position:absolute;top:300px;left:300px;}
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<img src="img/01.jpg" alt="">
+		<img src="img/02.jpg" alt="">
+		<img src="img/03.jpg" alt="">
+		<img src="img/04.jpg" alt="">
+		<img src="img/05.jpg" alt="">
+		<img src="img/06.jpg" alt="">
+	</div>
+	<button id="btn">开始</button>
+</body>
+<script src="js/jquery-2.2.3.min.js" ></script>
+<script type="text/javascript">
+
+function demo(ele,x,y,a,t) {
+	var f=ele;
+	var Vx=parseInt(x),
+	Vy=parseInt(y),
+	g=a,
+	t=parseInt(t),
+
+	h=300,l=300,Sx=110,Sy=110;
+
+	var i=setInterval(function(){
+		if(f){
+			Sx+=Vx*t;
+			l=Sx;
+			Vy+=g*t;
+			h+=Vy*t;
+			f.style.left =l+'px';
+			f.style.top =h+'px';
+			if(h>500){
+				clearInterval(i);
+			}
+		}
+
+	},t);
+}
+	var r = Math.random;
+	var x ;
+	
+
+$('#btn').click(function(){
+	$('img').each(function(index,value){
+		if(r()*10>5){
+		x=r()*2
+		console.log(x)
+	}else{
+		x= -r()*2
+		console.log(x)
+	}
+		demo(value,x,-5*Math.random(),0.0098,8)
+		// setTimeout(function(){
+		// 	// console.log(new Date())
+		// }, 1000)
+	})
+})
+
+// document.getElementById('btn').onclick = function(){
+// 	var img = document.getElementsByTagName('img');
+// 	// for(var i = 0;i<img.length;i++){
+// 		demo(img[4],2,-2,0.0098,10)
+// 	// }
+// }
+</script>
+</html>

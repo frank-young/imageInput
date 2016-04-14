@@ -17,7 +17,6 @@ $(function(){
 					'width': num,
 					'height': num
 				})
-
 		})
 
 			
@@ -43,7 +42,7 @@ $(function(){
 				top:'90%',
 				opacity:0
 			},600,'easeInCubic') 
-			console.log(i*5)
+			// console.log(i*5)
   //       var bool = new Parabola({
 		//     el: ".shot",
 		//     offset: [-100,-700],

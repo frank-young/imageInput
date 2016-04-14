@@ -6,7 +6,7 @@ body {
   font-size: 18px;
   font-family: '微软雅黑';
   color: #333;
-  background-color: #033AAE;
+  background-color: #0271C0;
 }
 .box-sizing {
   -webkit-box-sizing: border-box;
@@ -15,7 +15,8 @@ body {
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-button {
+button,
+input[type='submit'] {
   outline: none;
   border: 0;
   background-color: #f60;
@@ -36,29 +37,154 @@ button {
   -o-transition: all .3s ease;
   transition: all .3s ease;
 }
-button:hover {
+button:hover,
+input[type='submit']:hover {
   background-color: #f80;
 }
 /*导航*/
 .nav {
   width: 1500px;
-  height: 80px;
+  height: 100px;
   margin: 0 auto;
   *overflow: hidden;
   *zoom: 1;
+  /* 震动 */
+}
+.nav ul {
+  float: left;
+  overflow: hidden;
+}
+.nav li {
+  display: inline;
+  float: left;
+  margin-left: 40px;
+  margin-top: 25px;
+  border: 1px solid #fff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 10px 20px;
 }
 .nav .edit {
   float: right;
-  margin-top: 15px;
+  margin-top: 25px;
+}
+.nav .wrap-send {
+  float: right;
+  display: none;
+  margin-top: 25px;
+}
+.nav .wrap-send .email-waring {
+  color: #fff;
+  margin-right: 10px;
+}
+.nav input[type="mail"] {
+  outline: none;
+  width: 230px;
+  height: 32px;
+  padding: 6px 12px;
+  font-size: 18px;
+  font-family: '微软雅黑';
+  font-weight: 300;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+.nav input[type="mail"]:focus {
+  border: 1px solid #0b4;
+  -webkit-box-shadow: 0 0 4px #00bb44;
+  -moz-box-shadow: 0 0 4px #00bb44;
+  -ms-box-shadow: 0 0 4px #00bb44;
+  -o-box-shadow: 0 0 4px #00bb44;
+  box-shadow: 0 0 4px #00bb44;
 }
 .nav .success {
-  float: right;
-  margin-top: 15px;
-  background-color: #0b4;
-  display: none;
+  border: 1px solid #0b4 !important;
+  -webkit-box-shadow: 0 0 4px #00bb44;
+  -moz-box-shadow: 0 0 4px #00bb44;
+  -ms-box-shadow: 0 0 4px #00bb44;
+  -o-box-shadow: 0 0 4px #00bb44;
+  box-shadow: 0 0 4px #00bb44;
 }
-.nav .success:hover {
+.nav .fail {
+  border: 1px solid #DD010D;
+  -webkit-box-shadow: 0 0 4px #dd010d;
+  -moz-box-shadow: 0 0 4px #dd010d;
+  -ms-box-shadow: 0 0 4px #dd010d;
+  -o-box-shadow: 0 0 4px #dd010d;
+  box-shadow: 0 0 4px #dd010d;
+}
+@keyframes shake {
+  0% {
+    transform: translate(-3px, 0);
+  }
+  25% {
+    transform: translate(3px, 0);
+  }
+  50% {
+    transform: translate(-3px, 0);
+  }
+  75% {
+    transform: translate(3px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes shake {
+  0% {
+    transform: translate(-3px, 0);
+  }
+  25% {
+    transform: translate(3px, 0);
+  }
+  50% {
+    transform: translate(-3px, 0);
+  }
+  75% {
+    transform: translate(3px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.nav .shake {
+  animation: shake 0.2s ease-in;
+}
+.nav .send,
+.nav .not-send {
+  background-color: #0b4;
+  padding: 10px 40px;
+}
+.nav .send:hover,
+.nav .not-send:hover {
   background-color: #0c4;
+}
+.nav .send {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.nav .not-send {
+  background-color: #f60;
+  margin-right: 20px;
+}
+.nav .not-send:hover {
+  background-color: #f80;
 }
 .nav:after {
   content: '';
@@ -69,7 +195,7 @@ button:hover {
 .box {
   width: 1500px;
   margin: 0 auto;
-  border: 1px solid #999;
+  border: 1px solid #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -97,6 +223,7 @@ button:hover {
 .box-check label {
   position: relative;
   cursor: pointer;
+  color: #ffffff;
 }
 .box-check input[type="checkbox"] {
   width: 20px;
@@ -162,10 +289,9 @@ button:hover {
 .box-img {
   width: 480px;
   height: 300px;
-  line-height: 300px;
   float: left;
   margin: 10px;
-  font-size: 200px;
+  border: 8px solid #fff;
   color: #ffffff;
   opacity: 0;
   cursor: pointer;
@@ -173,10 +299,16 @@ button:hover {
   overflow: hidden;
   text-align: center;
   z-index: 10;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .box-img .mask-item {
   width: 100%;
   height: 100%;
+  line-height: 300px;
   position: absolute;
   top: 0;
   left: 0;
@@ -189,8 +321,23 @@ button:hover {
   font-size: 40px;
   color: #fff;
   text-align: center;
-  line-height: 300px;
+  line-height: 284px;
   z-index: 90;
+}
+.box-img .desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .box-img input[type='checkbox']:hover + span {
   border: 10px solid #0b4;
@@ -249,7 +396,7 @@ button:hover {
   width: 900px;
   height: auto;
   position: fixed;
-  top: 30%;
+  top: 10%;
   left: 50%;
   padding: 20px;
   -webkit-transform: translate(-50%, -50%);
@@ -279,6 +426,14 @@ button:hover {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
+}
+.zoom .zoom-desc {
+  line-height: 1.6em;
+  text-indent: 2em;
+}
+.zoom a {
+  text-decoration: none;
+  color: #f60;
 }
 .btn {
   width: 50px;
@@ -315,14 +470,19 @@ button:hover {
   border: 1px solid #666;
 }
 /* 图片发射样式 */
-.shot {
-  width: 100px;
-  height: 100px;
+.shot-box {
   position: fixed;
   left: 50%;
   top: 100%;
-  margin-left: -50px;
+  width: 100%;
+  height: 100%;
   z-index: 10000;
+}
+.shot {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  margin-left: -50px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;

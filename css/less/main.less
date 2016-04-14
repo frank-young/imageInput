@@ -6,7 +6,7 @@ body{
 	font-size: 18px;
 	font-family: '微软雅黑';
 	color:#333;
-	background-color: #033AAE;
+	background-color: #0271C0;
 }
 @width:1500px;
 @color-w:#fff;
@@ -48,7 +48,7 @@ body{
 
 }
 
-button{
+button,input[type='submit']{
 	outline:none;
 	border: 0;
 	background-color: #f60;
@@ -67,23 +67,125 @@ button{
 /*导航*/
 .nav{
 	width: @width;
-	height: 80px;
+	height: 100px;
 	margin: 0 auto;
 	*overflow: hidden;
 	*zoom: 1; 
+	ul{
+		float: left;
+		overflow: hidden;
+	}
+	li{
+		display: inline;
+		float: left;
+		margin-left: 40px;
+		margin-top: 25px;
+		border: 1px solid #fff;
+		.border-radius();
+	}
+	a{
+		text-decoration: none;
+		color: #fff;
+		display: block;
+		padding:10px 20px;
+	}
 	.edit{
 		float: right;
-		margin-top: 15px;
+		margin-top: 25px;
+	}
+	.wrap-send{
+		float: right;
+		display: none;
+		margin-top: 25px;
+		.email-waring{
+			color: #fff;
+			margin-right: 10px;
+		}
+	}
+	input[type="mail"]{
+		outline: none;
+		width: 230px;
+		height: 32px;
+		padding: 6px 12px;
+		font-size:18px;
+		font-family: '微软雅黑';
+		font-weight: 300;
+		border: 1px solid #ddd;
+		.border-radius();
+		.transition();
+		&:focus{
+			// width: 260px;
+			border: 1px solid #0b4;
+			.box-shadow(0,0,4px,#0b4);
+		}
 	}
 	.success{
-		float: right;
-		margin-top: 15px;
+		border: 1px solid #0b4 !important;
+		.box-shadow(0,0,4px,#0b4);
+	}
+	.fail{
+		border: 1px solid #DD010D;
+		.box-shadow(0,0,4px,#DD010D);
+
+	}
+	/* 震动 */
+	@keyframes shake{
+		0%{
+			transform: translate(-3px,0);
+		}
+		25%{
+			transform: translate(3px,0);
+		}
+		50%{
+			transform: translate(-3px,0);
+		}
+		75%{
+			transform: translate(3px,0);
+		}
+		100%{
+			transform: translate(0,0);
+		}
+	}
+	@-webkit-keyframes shake{
+		0%{
+			transform: translate(-3px,0);
+		}
+		25%{
+			transform: translate(3px,0);
+		}
+		50%{
+			transform: translate(-3px,0);
+		}
+		75%{
+			transform: translate(3px,0);
+		}
+		100%{
+			transform: translate(0,0);
+		}
+	}
+	.shake{
+		animation: shake .2s ease-in;
+	}
+	
+	.send,.not-send{
+		
 		background-color: #0b4;
-		display: none;
+		padding:10px 40px;
 		&:hover{
 			background-color: #0c4;
 		}
 	}
+	.send{
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	.not-send{
+			background-color: #f60;
+			margin-right: 20px;
+			&:hover{
+			background-color: #f80;
+			}
+		}
 	&:after{
 		content: '';
 		display: block;
@@ -98,7 +200,7 @@ button{
 
 	width: @width;  
 	margin: 0 auto;
-	border: 1px solid #999;
+	border: 1px solid #fff;
 	.border-radius();
 	padding:10px;
 	.transition();
@@ -113,6 +215,7 @@ button{
 		label{
 			position: relative;
 			cursor: pointer;
+			color: @color-w;
 		}
 		input[type="checkbox"]{
 			width: 20px;
@@ -152,10 +255,10 @@ button{
 	&-img{
 		width: @w;
 		height: @h;
-		line-height: @h;
+
 		float: left;
 		margin: 10px;
-		font-size: 200px;
+		border: 8px solid #fff;
 		color: @color-w;
 		opacity: 0;
 		cursor: pointer;
@@ -163,10 +266,12 @@ button{
 		overflow: hidden;
 		text-align: center;
 		z-index: 10;
-		
+		.box-sizing;
+		// .border-radius();
 		.mask-item{
 			width: 100%;
 			height: 100%;
+			line-height: @h;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -175,7 +280,19 @@ button{
 			font-size: 40px;
 			color: #fff;
 			text-align: center;
-			line-height: 300px;z-index: 90;
+			line-height: 284px;
+			z-index: 90;
+		}
+		.desc{
+			position: absolute;
+			bottom:0;
+			left: 0;
+			width: 100%;	
+			height: 50px;
+			padding: 10px;
+			text-align: left;
+			background-color: rgba(0, 0, 0, 0.3);
+			.box-sizing;
 		}
 		input[type='checkbox']:hover +span{
 
@@ -235,7 +352,7 @@ button{
 	width: @w;
 	height: auto;
 	position: fixed;
-	top:30%;
+	top:10%;
 	left: 50%;
 	padding: 20px;
 	.translate();
@@ -249,6 +366,14 @@ button{
 		width:@w; 
 		// height: @h;
 		.border-radius();
+	}
+	.zoom-desc{
+		line-height: 1.6em;
+		text-indent: 2em;
+	}
+	a{
+		text-decoration: none;
+		color: #f60;
 	}
 }
 .btn{
@@ -286,18 +411,24 @@ button{
 }
 
 /* 图片发射样式 */
+.shot-box{
+	position: fixed;
+	left: 50%;
+	top: 100%;
+	width: 100%;
+	height: 100%;
+	z-index: 10000;
+}
 .shot{
 	@w:100px;
 	@h:100px;
 
 	width: @w;
 	height: @h;
-	position: fixed;
-	left: 50%;
-	top: 100%;
+	position: absolute;
 	// margin-top: -@w;
 	margin-left: -@w/2;
-	z-index: 10000;
+	
 	.border-radius(50%);
 	border:10px solid rgba(255, 255, 255, 0.5)
 }

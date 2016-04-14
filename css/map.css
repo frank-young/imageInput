@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body,
+h1,
+h2,
+h3 {
+  font-family: '微软雅黑';
+  font-weight: normal;
+}
+.box-sizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wrap {
+  width: 1024px;
+  margin: 0 auto;
+}
+.wrap h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.wrap a {
+  text-decoration: none;
+  color: #666;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 1px solid #666;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.wrap small {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 20px;
+  color: #666;
+}
+canvas {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fcfcfc;
+  box-shadow: 2px 2px 3px #ccc;
+}
+p {
+  width: 1024px;
+  height: 800px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fcfcfc;
+  box-shadow: 2px 2px 3px #ccc;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 18px;
+}
