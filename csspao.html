@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3实现抛物线运动</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: #f60;
+			border-radius: 50%;
+			position: fixed;
+			left:50%;
+			top: 100%;
+			transition: left 0.5s linear .1s,
+				top 0.5s cubic-bezier(.53,.85,.66,.84);
+		}
+		.animate{
+			top:100% !important;
+
+		}
+		.list{
+			width: 300px;
+			height: 300px;
+			background-color: #f60;
+			float: left;
+			transition: all .5s;
+			margin-left: 20px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button id="move">运动</button>
+	<button id="reset">回到原位</button>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<script>
+		$(function(){
+			var move = $('#move');
+			var box = $('.box');
+			var reset = $('#reset');
+			var r = Math.random;
+			move.click(function(){
+			var i = 0;
+			long = setInterval(function(){ show() }, 50);
+			function show() {
+				box[i].style.left= r()*60+20+'%';
+				box[i].style.top=r()*40+10+'%';
+				i += 1;
+				if (i >= box.length){
+					clearInterval(long);
+				}
+			}
+		});
+		reset.click(function(){
+			box.each(function(index){
+				$(this)
+					.removeClass('box')
+					.removeAttr('style')
+					.addClass('list');
+			})
+		})
+		})
+		
+	
+	</script>
+</body>
+</html>

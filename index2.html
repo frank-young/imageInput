@@ -5,6 +5,21 @@
 	<title>图片飞入</title>
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="css/main.css">
+	<style>
+	.shot{
+		position: fixed;
+		left: 50%;
+		top: 100%;
+		width: 100%;
+		height: 100%;
+		z-index: 10000;
+		width:100px;
+		height: 100px;
+		position: absolute;
+		margin-left: -50px;
+		border-radius:50%;
+		border:10px solid rgba(255, 255, 255, 0.5);
+	</style>
 </head>
 <body>
 <form action="index.html" method="post">
@@ -136,11 +151,11 @@
 	</div>
 	<!-- /.zoom -->
 	<!-- 图片飞入 -->
-	<div class="shot-box"></div>
 	<script src="js/jquery-2.2.3.min.js" ></script>
 	<script src="js/jquery.easing.js"></script>
 	<script src="js/main.js"></script>
-	<script src="js/shotnew.js"></script>
+	<script src="js/shot.js"></script>
+
 	<script src="js/validate.js"></script>
 </body>
 </html>

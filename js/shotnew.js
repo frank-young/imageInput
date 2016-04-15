@@ -31,19 +31,21 @@ $(function(){
 
 		var i=setInterval(function(){
 			if(f){
-				Sx+=Vx*t;
-				l=Sx;
-				Vy+=g*t;
-				h+=Vy*t;
-					f.style.left =l+'px';
-					f.style.top = h+'px';
+
+				// t :是每一次运动的间隔时间
+				Sx  += Vx*t;   // Sx: x轴的速度 * 时间,距离左边的距离
+				Vy +=g*t;	//  Vy: 重力 * 时间
+				Sy+=Vy*t;	//  y轴的速度 * 时间
+				
+					f.style.left =Sx+'px';
+					f.style.top = Sy+'px';
 				
 				if(h>200){
 					clearInterval(i);
 				}
 			}
 
-		},25);
+		},20);
 	}
 	function imgShot(){
 		imgcreate();
@@ -51,13 +53,15 @@ $(function(){
 		var x ;
 		$('.shot')
 		.each(function(index,value){
-			$(this).delay(500).animate({opacity:1},100)
+
    			if(r()*10>5){
-				x=r()*2.2;
+				x=r()*2;
 			}else{
-				x= -r()*2.2;
+				x= -r()*2;
 			}
-				demo(value,x,-4*r()-2,0.013,10)
+				demo(value,x,-4*r()-2,0.013,r()*10+5);
+			// setTimeout(function(){},200);
+
 		})
 	}
 
