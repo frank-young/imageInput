@@ -23,8 +23,13 @@
 			top:100% !important;
 
 		}
+		.wrap{
+			width: 95%;
+			float: left;
+
+		}
 		.list{
-			width: 300px;
+			width: 20%;
 			height: 300px;
 			background-color: #f60;
 			float: left;
@@ -34,36 +39,65 @@
 			margin-left: 20px;
 			margin-top: 20px;
 		}
+		.sidebar{
+			width: 0;
+			height: 0;
+			margin: 10px;
+			display: none;
+			float: left;
+		/*	-webkit-transition: all .3s;
+			transition: all .3s;*/
+			opacity: 0;
+			background-color: #f09
+		}
+		.header{
+			width: 0;
+			height: 0;
+			margin: 10px;
+			display: none;
+/*			-webkit-transition: all .3s;
+			transition: all .3s;*/
+			opacity: 0;
+			background-color: #9f5
+		}
 	</style>
 </head>
 <body>
 	<button id="move">运动</button>
 	<button id="reset">回到原位</button>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
-	<div class="box"></div>
+	<div class="header">这是头部
+	</div>
+	<div class="sidebar">
+		<span>这是一些测试文字</span>
+	</div>
+	<div class="wrap">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+	<div style="clear:both"></div>
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script>
 		$(function(){
@@ -71,29 +105,37 @@
 			var box = $('.box');
 			var reset = $('#reset');
 			var r = Math.random;
-			move.click(function(){
-			var i = 0;
-			long = setInterval(function(){ show() }, 50);
-			function show() {
-				box[i].style.left= r()*60+20+'%';
-				box[i].style.top=r()*40+10+'%';
-				i += 1;
-				if (i >= box.length){
-					clearInterval(long);
+			// move.click(function(){
+				var i = 0;
+				long = setInterval(function(){ show() }, 50);
+				function show() {
+					box[i].style.left= r()*60+20+'%';
+					box[i].style.top=r()*40+10+'%';
+					i += 1;
+					if (i >= box.length){
+						clearInterval(long);
+					}
 				}
+
+				setTimeout(function(){list()}, 2000)
+				function list(){
+				box.each(function(index){
+					$(this)
+						.removeClass('box')
+						.removeAttr('style').delay(50)
+						.addClass('list');
+				})
+				$('.sidebar').delay(500).animate({width:100,height:500,opacity:1},300).show();
+				$('.header').delay(500).animate({width:'80%',height:100,opacity:1},300).show();
+				$('.wrap').delay(500).animate({width:'80%'},300);
 			}
-		});
-		reset.click(function(){
-			box.each(function(index){
-				$(this)
-					.removeClass('box')
-					.removeAttr('style').delay(50)
-					.addClass('list');
+			// });
+			reset.click(function(){
+				
 			})
-		})
+
 		})
 		
-	
 	</script>
 </body>
 </html>
